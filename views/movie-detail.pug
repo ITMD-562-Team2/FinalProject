@@ -1,0 +1,12 @@
+extends layout.pug
+
+block content
+  h1.mt-5= "Movie Title: " + movie.title
+  h3.mt-5= "Director: " + movie.director
+  h3.mt-5= "Cast: " + movie.cast
+  a.btn.btn-primary(href='/movies/' + movie.id + '/update') Update this Movie's Details
+  form(action='/movies/' + movie.id + '/delete' method="POST")
+    button.btn.btn-danger(type='submit') Delete this Movie
+  a.btn.btn-primary(href='/') Go back to Home Page
+  br
+  br
