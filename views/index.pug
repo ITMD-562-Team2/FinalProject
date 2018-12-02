@@ -1,0 +1,16 @@
+extends layout.pug
+
+block content
+  h1.mt-5 Ongoing Movies
+    a.btn.btn-primary(href='./movies/new' style='margin-left: 25px') Admin Login
+
+  <p>Click on movie's title to reserve your seats</p>
+  table.table
+    thead
+      tr
+        th(scope='col') Movie
+    tbody
+      each movie in movies
+        tr
+          td
+            a(href='/movies/' + movie.id)= movie.title
