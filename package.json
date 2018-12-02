@@ -1,0 +1,28 @@
+{
+  "name": "finalproject",
+  "version": "1.0.0",
+  "description": "movie ticket booking webapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ITMD-562-Team2/FinalProject.git"
+  },
+  "keywords": [
+    "movie",
+    "ticket",
+    "booking"
+  ],
+  "author": "Parth Vaghasiya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ITMD-562-Team2/FinalProject/issues"
+  },
+  "homepage": "https://github.com/ITMD-562-Team2/FinalProject#readme",
+  "dependencies": {
+    "mongoose": "^5.3.14",
+    "pug": "^2.0.3"
+  }
+}
