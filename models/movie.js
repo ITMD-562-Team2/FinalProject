@@ -4,5 +4,5 @@ var movieSchema = new mongoose.Schema({
   director: { type: String, required: true },
   cast: {type: String, required: true }
 });
-
 var Movie = mongoose.model('Movie', movieSchema);
+module.exports = Movie;
