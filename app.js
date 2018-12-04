@@ -62,4 +62,4 @@ app.use(function(err, req, res, next){
   });
 });
 
-app.listen(port, () => console.log(`Movie ticket app listening on port ${port}!`))
+app.listen(port, () => console.log(`Movienta app listening on port ${port}!`))
