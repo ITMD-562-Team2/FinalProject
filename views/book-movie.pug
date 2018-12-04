@@ -8,10 +8,12 @@ block content
         form(method="POST")
           .form-group
             label(for='title') Movie
-              select.form-control#demoSelect(multiple="")
+              select.form-control#title(multiple="")
                 optgroup(label="Select Movie")
-                  option each movie.title in movies
-                  option hello
+                  option Thor
+                  option Batman
+                  option SpiderMan
+                  option Hulk
           .form-group
             label(for='showDate') Date (You can book tickets 7 days in advance)
               input(data-provide='datepicker',class='datepicker', id='order.showDate', format='mm/dd/yyyy', data-date-start-date='-0d', data-date-end-date='+7d', style="color:black")
@@ -19,18 +21,23 @@ block content
             label(for='showTime') Time
             label.radio-inline
               input(type='radio', class='radioSpans', id='order.showTime', value='12:00', name='confidence')
-              span 12:00
+              span 12:00 PM
             label.radio-inline
               input(type='radio', class='radioSpans', id='order.showTime', value='3:00', name='confidence')
-              span 3:00
+              span 3:00 PM
             label.radio-inline
               input(type='radio', class='radioSpans', id='order.showTime', value='6:00', name='confidence')
-              span 6:00
+              span 6:00 PM
+            label.radio-inline
+              input(type='radio', class='radioSpans', id='order.showTime', value='8:00', name='confidence')
+              span 8:00 PM
           .form-group
             label(for='numberTickets') Number of tickets (Maxixmum: 40)
             input(type="number", name="numberTickets", style="color:black", max="40", min="1")
-    button.btn.btn-primary(type='submit') Book Tickets
-    br
-    br
-    a.btn.btn-primary(href='/') Go back to Home Page
-    br
+          .form-group
+            label(for='pricing') Price: $15/Ticket (All taxes are included)
+          button.btn.btn-primary(type='submit') Book Ticket
+          br
+          br
+          a.btn.btn-primary(href='/') Go back to Home Page
+          br

@@ -3,22 +3,27 @@ extends layout.pug
 block content
   h1.mt-5= title
   form(method="POST")
+    br
+    br
+    br
+    br
     .form-group
-      label(for='title') Title
+      label(for='title')(style='color:white') Title
       input#name.form-control(type='text', placeholder='Enter title of the movie', name="title", value=movie.title)
     .form-group
-      label(for='director') Director
+      label(for='director')(style='color:white') Director
       input#author.form-control(type='text', placeholder='Director of the movie', name="director", value=movie.director)
     .form-group
-      label(for='cast') Cast
+      label(for='cast')(style='color:white') Cast
       input#numPages.form-control(type='text', placeholder='Cast of the movie', name="cast", value=movie.cast)
       button.btn.btn-primary(type='submit') Update Movie
       br
     form(action='/movies/' + movie.id + '/delete' method="POST")
       button.btn.btn-danger(type='submit') Delete this Movie
       br
+      br
       button.btn.btn-primary(href='/') Cancel
       br
       br
-      a.btn.btn-primary(href='/') Go back to Books Directory
+      a.btn.btn-primary(href='/') Go back to main menu
       br

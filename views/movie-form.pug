@@ -1,20 +1,20 @@
 extends layout.pug
 
 block content
-  .main.container.clearfix
-    .row
-      .col-md-8.col-md-offset-2
-        h1.mt-5= title
-        form(method="POST")
-          .form-group
-            label(for='title') Title
-            input#title.form-control(type='text', placeholder='Enter title of the movie', name="title", value=movie.title)
-          .form-group
-            label(for='director') Director
-            input#director.form-control(type='text', placeholder='Director of the movie', name="director", value=movie.director)
-          .form-group
-            label(for='cast') Cast
-            input#cast.form-control(type='text', placeholder='Cast of the movie', name="cast", value=movie.cast)
+  h1.mt-5= title
+  form(method="POST")
+    br
+    br
+    br
+    .form-group
+      label(for='title')(style='color:white') Title
+      input#title.form-control(type='text', placeholder='Title of the Movie', name="title", value=movie.title, style='color:black')
+    .form-group
+      label(for='Director')(style='color:white') Director
+      input#director.form-control(type='text', placeholder='Name of the Director', name="director", value=movie.director, style='color:black')
+    .form-group
+      label(for='cast')(style='color:white') Cast
+      input#cast.form-control(type='text', placeholder='Enter Cast of the movie', name="cast", value=movie.cast, style='color:black')
     button.btn.btn-primary(type='submit') Release Movie Details
     br
     br

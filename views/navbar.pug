@@ -7,17 +7,18 @@ nav.navbar.navbar-fixed-top.navbar-dark.bg-inverse
         | Movienta
       .nav-items.clearfix
         if !currentUser
-        a.nav-item.nav-link(href='about') About
-        a.nav-item.nav-link(href='contact') Contact
-        a.nav-item.nav-link(href='profile') My Profile
+          a.nav-item.nav-link(href='book-movie') Book Now
+          a.nav-item.nav-link(href='about') About Us
+          a.nav-item.nav-link(href='contact') Contact Us
         if currentUser
           a.nav-item.nav-link(href='/movies/new/') Add Movie
+          a.nav-item.nav-link(href='profile') My Profile
           a.nav-item.nav-link(href='/update/') Edit/Delete Movie
-          a.nav-item.nav-link(href='register') Add authorised user
+          a.nav-item.nav-link(href='register') Add authorized user
 
       if currentUser
         div
           img.avatar.img-circle.hidden-xs-down(src='/images/avatar.png', alt='avatar')
           a.btn.btn-light.pull-md-right(href='/logout') Log out
       else
-        a.btn.btn-info.pull-md-right(href='/login')Admin Login
+        a.btn.btn-info.pull-md-right(href='/login') Admin Login
