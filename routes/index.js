@@ -1,18 +1,10 @@
 var express = require('express');
-//var router = express.Router();
 const app = express();
 var User = require('../models/user');
 var Movie = require('../models/movie');
 var mongoose = require('mongoose');
 var MongoClient = require('mongodb').MongoClient
 var ObjectID = require('mongodb').ObjectID;
-
-//const showDate = datepicker('.showDate', {
-//  id:1,
-//  onSelect: (instance, selectedDate) => {
-//    instance.setDate(selectedDate);
-//  }
-//});
 
 // GET /profile
 app.get('/profile', function(req, res, next) {
@@ -106,7 +98,7 @@ app.get('/login', function(req, res, next) {
   return res.render('login', { title: 'Log In'});
 });
 
-// GET /book-movies
+// GET book-movies
 app.get('/book-movie', function(req, res, next) {
   return res.render('book-movie', { title: 'Book Movie'});
 });
@@ -183,7 +175,7 @@ db.once('open', function() {
       });
     });
 
-    app.get('/movies/new', (req, res) => {
+    app.get('/movies/new', (req, res, next) => {
       if (! req.session.userId) {
         var err = new Error("You are not authorised to view this page.");
         err.status = 403;
@@ -198,6 +190,12 @@ db.once('open', function() {
             }
           });
         });
+
+        //new orders
+      //  app.get('/orders/new', (req, res, next) => {
+        //          res.render('book-movie', { title: "Select your choices", order: {} });
+          //  });
+
 
     app.get('/movies/:id/update', (req, res) => {
       let id = ObjectID.createFromHexString(req.params.id)
@@ -226,6 +224,19 @@ db.once('open', function() {
           res.render('movie-form', { movie: newMovie, error: err })
         } else {
           res.redirect('/movies/' + savedMovie.id);
+        }
+      });
+    });
+
+    //new order post
+    app.post('/orders/new', function(req, res, next) {
+      let newOrder = new Order(req.body);
+      newOrder.save(function(err, savedOrder){
+        if (err) {
+          console.log(err)
+          res.render('book-movie', { movie: newOrder, error: err })
+        } else {
+          res.redirect('/orders/' + savedOrder.id);
         }
       });
     });
@@ -359,5 +370,4 @@ db.once('open', function() {
 
   });
 
-//module.exports = router;
 module.exports = app;
