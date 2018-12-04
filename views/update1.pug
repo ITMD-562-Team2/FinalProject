@@ -2,7 +2,8 @@ extends layout
 
 block content
   .main.container.text-xs-center
-    h1.display-3 Movies at Movienta
+    h1.display-3 Edit/Delete Movies
+    h3.display-7 Please select the movie on which you want make changes
   table.table
     thead
       tr(style='color:white')
@@ -13,6 +14,6 @@ block content
       each movie in movies
         tr.tabledata(style='color:white')
           td
-            a(href='/movies/' + movie.id)= movie.title
+            a(href='/movies1/' + movie.id)= movie.title
           td= movie.director
           td= movie.cast

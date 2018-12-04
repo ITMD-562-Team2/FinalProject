@@ -1,22 +1,24 @@
 extends layout.pug
 
 block content
-h1.mt-5= title
-form(method="POST")
-  .form-group
-    label(for='title') Title
-    input#name.form-control(type='text', placeholder='Enter title of the movie', name="title", value=movie.title)
-  .form-group
-    label(for='director') Director
-    input#author.form-control(type='text', placeholder='Director of the movie', name="director", value=movie.director)
-  .form-group
-    label(for='cast') Cast
-    input#numPages.form-control(type='text', placeholder='Cast of the movie', name="cast", value=movie.cast)
-    button.btn.btn-primary(type='submit') Update Book
-    br
-    br
-    button.btn.btn-primary(href='/books/:id/  ') Cancel
-    br
-    br
-    a.btn.btn-primary(href='/') Go back to Books Directory
-    br
+  h1.mt-5= title
+  form(method="POST")
+    .form-group
+      label(for='title') Title
+      input#name.form-control(type='text', placeholder='Enter title of the movie', name="title", value=movie.title)
+    .form-group
+      label(for='director') Director
+      input#author.form-control(type='text', placeholder='Director of the movie', name="director", value=movie.director)
+    .form-group
+      label(for='cast') Cast
+      input#numPages.form-control(type='text', placeholder='Cast of the movie', name="cast", value=movie.cast)
+      button.btn.btn-primary(type='submit') Update Movie
+      br
+    form(action='/movies/' + movie.id + '/delete' method="POST")
+      button.btn.btn-danger(type='submit') Delete this Movie
+      br
+      button.btn.btn-primary(href='/') Cancel
+      br
+      br
+      a.btn.btn-primary(href='/') Go back to Books Directory
+      br

@@ -1,0 +1,28 @@
+extends layout.pug
+
+block content
+  br
+  br
+  br
+  h1.mt-5(style='color:white')= "Movie Title: " + movie.title
+  h3.mt-5(style='color:white')= "Director: " + movie.director
+  h3.mt-5(style='color:white')= "Cast: " + movie.cast
+  h3.mt-5(style='color:white')= "Date:"
+  .input-group.date
+    input.form-control(type='text')
+    span.input-group-addon
+      i.glyphicon.glyphicon-calendar
+  h3.mt-5(style='color:white')= "Timings: "
+    label.radio-inline
+      input(type='radio', class='radioSpans', id='order.showTime', value='12:00', name='confidence')
+      span 12:00
+    label.radio-inline
+      input(type='radio', class='radioSpans', id='order.showTime', value='3:00', name='confidence')
+      span 3:00
+    label.radio-inline
+      input(type='radio', class='radioSpans', id='order.showTime', value='6:00', name='confidence')
+      span 6:00
+  a.btn.btn-primary(href='/orders/' + order.id ) Book Now
+  a.btn.btn-primary(href='/') Go back to Home Page
+  br
+  br

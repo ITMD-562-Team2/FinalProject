@@ -1,0 +1,36 @@
+extends layout.pug
+
+block content
+  .main.container.clearfix
+    .row
+      .col-md-8.col-md-offset-2
+        h1.mt-5= title
+        form(method="POST")
+          .form-group
+            label(for='title') Movie
+              select.form-control#demoSelect(multiple="")
+                optgroup(label="Select Movie")
+                  option each movie.title in movies
+                  option hello
+          .form-group
+            label(for='showDate') Date (You can book tickets 7 days in advance)
+              input(data-provide='datepicker',class='datepicker', id='order.showDate', format='mm/dd/yyyy', data-date-start-date='-0d', data-date-end-date='+7d', style="color:black")
+          .form-group
+            label(for='showTime') Time
+            label.radio-inline
+              input(type='radio', class='radioSpans', id='order.showTime', value='12:00', name='confidence')
+              span 12:00
+            label.radio-inline
+              input(type='radio', class='radioSpans', id='order.showTime', value='3:00', name='confidence')
+              span 3:00
+            label.radio-inline
+              input(type='radio', class='radioSpans', id='order.showTime', value='6:00', name='confidence')
+              span 6:00
+          .form-group
+            label(for='numberTickets') Number of tickets (Maxixmum: 40)
+            input(type="number", name="numberTickets", style="color:black", max="40", min="1")
+    button.btn.btn-primary(type='submit') Book Tickets
+    br
+    br
+    a.btn.btn-primary(href='/') Go back to Home Page
+    br
